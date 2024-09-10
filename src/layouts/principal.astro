@@ -1,0 +1,52 @@
+---
+import MenuNavegator from "../components/menu_navegator.astro"
+import Footer from '../components/footer.astro'
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+const {title} = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+</head>
+<body>
+    <header>
+        <MenuNavegator/>
+    </header>
+    <main>
+        <slot/>
+    </main>
+    <footer>
+        <Footer/>
+    </footer>
+</body>
+</html>
+
+<style>
+:root {
+    --background-colorUp: #d4d3d1;
+    --background-colorDown: #333333;
+}
+
+html, body {
+    padding: 1vw;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(var(--background-colorUp), var(--background-colorDown));
+    display: flex;
+    flex-direction: column;
+}
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+</style>
