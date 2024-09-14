@@ -3,6 +3,7 @@ import MenuNavegator from "../components/menu_navegator.astro"
 import Footer from '../components/footer.astro'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 const {title} = Astro.props
+const {indexSelected="0"} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -14,7 +15,7 @@ const {title} = Astro.props
 </head>
 <body>
     <header>
-        <MenuNavegator/>
+        <MenuNavegator indexSelected=`${indexSelected}`/>
     </header>
     <main>
         <slot/>
@@ -22,6 +23,7 @@ const {title} = Astro.props
     <footer>
         <Footer/>
     </footer>
+    <script type="module" src="/node_modules/three/build/three.module.min.js"></script>
 </body>
 </html>
 
@@ -48,5 +50,8 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+main {
+    margin-top: 50px;
 }
 </style>

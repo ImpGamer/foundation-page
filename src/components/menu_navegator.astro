@@ -1,17 +1,19 @@
+---
+const {indexSelected="0"} = Astro.props;
+---
 <nav>
     <picture class="image-container">
-        <img src="../../public/images/scp-logo.png" alt="logo">
+        <a href="/"><img src="../../public/images/scp-logo.png" alt="logo"></a>
     </picture>
     <div class="pages-container">
         <ul class="items">
-            <li><a class="item" href="#">Home</a></li>
-            <li><a class="item" href="">News</a></li>
-            <li><a class="item" href="">About Us</a></li>
-            <li><a class="item" href="#">Join Us</a></li>
+            <li><a class={`item${indexSelected == 0 ? ' selected' : ''}`} href="/">Home</a></li>
+            <li><a class={`item${indexSelected == 1 ? ' selected' : ''}`} href="/news">News</a></li>
+            <li><a class={`item${indexSelected == 2 ? ' selected' : ''}`} href="/about">About Us</a></li>
+            <li><a class={`item${indexSelected == 3 ? ' selected' : ''}`} href="/join_us">Join Us</a></li>
         </ul>
     </div>
 </nav>
-
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
@@ -53,8 +55,12 @@
         font-weight: 400;
         font-style: normal;
 
-        &.active {
-            
+        &:hover {
+            color: red;
+        }
+        &.selected {
+            color: red;
+            text-decoration: underline;
         }
     }
 
