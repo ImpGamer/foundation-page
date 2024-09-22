@@ -38,11 +38,12 @@ const {indexSelected="0"} = Astro.props;
 }
 
 html, body {
-    padding: 1vw;
     margin: 0;
     width: 100%;
-    height: 100%;
     box-sizing: border-box;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
 }
 body {
     background: linear-gradient(var(--background-colorUp), var(--background-colorDown));
@@ -53,10 +54,11 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
 }
 main {
     margin-top: 50px;
+    padding: 1vw;
 }
 .main-container {
     padding: 10px;

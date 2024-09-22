@@ -1,15 +1,24 @@
 ---
 import Principal from '../layouts/principal.astro'
+import TitleCard from '../components/Title_card.astro'
+import { DIRECTION_CARD } from '../components/Title_card.astro'
 ---
 
-<Principal title="Home">
-	<h1>Bienvenidos!</h1>
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, hic. Voluptas autem ex repellat alias aut adipisci unde tenetur atque veniam sequi, ad fugit nam distinctio facere repellendus eum optio.
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae rem harum mollitia provident, veritatis animi perspiciatis suscipit vitae quos corporis consequuntur delectus cupiditate voluptate? Sapiente voluptates quasi aliquid deleniti itaque!
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero impedit nisi deserunt doloremque incidunt ullam iste, nobis beatae nesciunt laudantium amet ipsum. Voluptatem dolorum impedit accusamus maxime odio error eveniet?
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi veniam eum, laudantium vero dolorem est repellendus dolore similique ullam itaque quidem voluptatum ex amet, laboriosam modi ea alias dolor obcaecati?
-	Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque amet dolore, dicta placeat animi ipsa quae explicabo architecto inventore beatae, harum nam cupiditate! Ut totam, nulla dolor deserunt doloremque minus.
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus excepturi temporibus delectus enim, voluptatem adipisci! Iusto aliquid eligendi modi molestias voluptatem. Libero dicta et laboriosam, labore voluptatum sapiente ut molestiae.
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolor animi labore deleniti qui tenetur quas? Repellat in dolor excepturi suscipit qui, deleniti iste ad tenetur, similique voluptate nam consectetur.
-</Principal>
+<Principal title="Home" indexSelected="0">
+	<TitleCard
+	titleCard="THE FOUNDATION SURVIVE",
+	descriptionCard="A HORROR, ACTION AND SUSPENSE GAME",
+	direction={DIRECTION_CARD.NORMAL},
+	isImage= {false}>
 
+		<h5 class="creepy-text">SINOPSIS</h5>
+		<p>The Foundation Survive is a horror-action game inspired by the popular internet series, <strong>The SCP Foundation.</strong><br>The game dives into 	the chilling stories of incidents that took place within the foundation. Where you'll step into the role of the protagonist, experiencing one of the 	most terrifying and unsettling events ever to occur in the facility.
+		</p>
+
+		<a style="margin-top: 1rem;" class="btn btn-dark btn-lg" href="/about">Know More</a>
+	</TitleCard>
+
+	<p>HAOWJFOIAJFWIO Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid maxime eos optio illum culpa labore temporibus exercitationem excepturi. Laudantium reiciendis corporis nulla? Sapiente, consectetur fuga quam necessitatibus nam accusantium sunt!</p>
+
+
+</Principal>
