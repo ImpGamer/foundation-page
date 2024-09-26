@@ -1,14 +1,14 @@
 ---
-import SCPLogo from './scp_logo.astro'
-const {titleCard,descriptionCard,direction,isImage,imageSRC='',altImage=''} = Astro.props
+import ScpLogo from "./scp_logo.astro";
+const { titleCard, descriptionCard, direction, isImage, imageSRC = '', altImage = '' } = Astro.props;
 
 export const DIRECTION_CARD = Object.freeze({
-    NORMAL: 'normal',
-    REVERSE: 'reverse'
-})
+  NORMAL: 'normal',
+  REVERSE: 'reverse',
+});
 ---
 
-<div class={`card-container ${direction === DIRECTION_CARD.NORMAL?'normal':'reverse'}`}>
+<div class={`card-container ${direction===DIRECTION_CARD.NORMAL?'normal':'reverse'}`}>
     <div>
         <h1 class="title">{titleCard.toUpperCase()}</h1>
         <h2 class="subtitle">{descriptionCard.toUpperCase()}</h2>
@@ -20,10 +20,16 @@ export const DIRECTION_CARD = Object.freeze({
                 <img src={imageSRC} alt={altImage} class="img-fluid" />
         ) : (
             <div class="graphic-container">
-                <SCPLogo />
+                <ScpLogo />
             </div>
         )}
 </div>
+
+<script>
+
+    
+</script>
+
 
 <style>
     .card-container {
@@ -37,13 +43,12 @@ export const DIRECTION_CARD = Object.freeze({
         flex-direction: row-reverse;
     }
     .graphic-container {
+        justify-content: center;
         margin-left: -3%;
         width: 105vw;
         height: 120vh;
         text-align: center;
         flex-shrink: 0;
-        overflow: hidden;
-        overflow-anchor: hidden;
     }
 
     .text {
@@ -53,5 +58,40 @@ export const DIRECTION_CARD = Object.freeze({
         font-weight: 400;
         font-style: normal;
         margin-top: 12%;
+    }
+
+    .title {
+        font-family: "Rubik Spray Paint", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 6.5em;
+        color: #801423;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .subtitle {
+        font-family: "Rubik Spray Paint", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 3em;
+        color: black;
+    }
+
+    @media (width <= 970px) {
+        .card-container {
+            flex-direction: column;
+        }
+        .title {
+            font-size: 4em;
+        }
+        .subtitle {
+            font-size: 2em;
+        }
+        .graphic-container {
+            margin: 0;
+            width: 90vw;
+            height: 80vh;
+        }
     }
 </style>

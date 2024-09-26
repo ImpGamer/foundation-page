@@ -12,6 +12,10 @@ const {indexSelected="0"} = Astro.props;
             <li><a class={`item${indexSelected == 2 ? ' selected' : ''}`} href="/about">About Us</a></li>
             <li><a class={`item${indexSelected == 3 ? ' selected' : ''}`} href="/join_us">Join Us</a></li>
         </ul>
+        
+    </div>
+    <div class="desplegable-menu-container">
+        <button class="menu-btn"><i class="fa-solid fa-bars"></i></button>
     </div>
 </nav>
 
@@ -21,6 +25,7 @@ const {indexSelected="0"} = Astro.props;
         display: flex;
         flex-direction: row;
         padding: 20px;
+        align-items: center;
     }
     .image-container img {
         width: 100%;
@@ -46,6 +51,23 @@ const {indexSelected="0"} = Astro.props;
         flex-direction: row;
         gap: 5vw;
     }
+    .desplegable-menu-container {
+        display: none;
+        border: 2px solid white;
+        border-radius: 5px;
+        margin-left: auto;
+        justify-content: center;
+        height: 4em;
+        width: 4.5em;
+    }
+    .menu-btn {
+        padding: 0.5vw;
+        background-color: white;
+        height: 100%;
+        overflow: hidden;
+        width: 100%;
+        margin: 0;
+    }
     .item {
         font-size: 2.5vw;
         text-decoration: none;
@@ -61,6 +83,16 @@ const {indexSelected="0"} = Astro.props;
             color: red;
             text-decoration: underline;
         }
+    }
+
+    @media (width <= 850px) {
+        .desplegable-menu-container {
+            display: block;
+        }
+        .image-container {
+            min-width: 45vw;
+        }
+        .pages-container {display: none;}
     }
 
 </style>
