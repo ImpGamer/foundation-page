@@ -1,0 +1,45 @@
+---
+const {titleCard,srcImage} = Astro.props
+---
+
+<div class="card-container card">
+    <img src={srcImage} alt=`${titleCard}-image` class="card-img-top resp-image">
+    <div class="content text">
+        <h4 class="title">{titleCard}</h4>
+        <slot/>
+    </div>
+</div>
+
+<style>
+    .card-container {
+        width: 35vw;
+        border-radius: 20px;
+        background-color: rgba(1,1,1,0.5);
+        box-shadow: 4px 4px 3px black;
+    }
+    .content {
+        margin-top: 15px;
+        text-align: center;
+        color: white;
+    }
+    .resp-image {
+        border-radius: inherit;
+        max-height: 80%;
+    }
+
+    .title {
+        font-family: "Rubik Spray Paint", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.6rem;
+        color: #801423;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    @media (width <= 1060px) {
+        .card-container {
+            width: 100%;
+        }
+    }
+</style>
