@@ -1,0 +1,68 @@
+---
+const {titleCard,srcImage,direction,sub=''} = Astro.props
+---
+
+<div class=`card-container ${direction}`>
+    <div>
+        <h3 class="title">{titleCard}</h3>
+        <slot/>
+    </div>
+    <div class="image-container">
+        <img src={`${srcImage}`} alt={`${titleCard}`} class="resp-image">
+        <p class="vertical-sub text">{sub}</p>
+    </div>
+</div>
+
+<style>
+    .card-container {
+        color: white;
+        border-radius: 20px;
+        background-color: rgba(1,1,1,0.5);
+        padding: 10px 2vw;
+        width: 100%;
+        height: auto;
+        display: flex;
+        overflow: hidden;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        box-shadow: 3px 3px 4px black;
+
+        &.reverse {
+            flex-direction: row-reverse;
+        }
+    }
+    .title {
+        font-family: "Rubik Spray Paint", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 3.5em;
+        color: #801423;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .resp-image {
+        min-height: 20vh;
+        max-width: 100%;
+        max-height: 45vh;
+    } 
+    .image-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
+        margin: 5px;
+    }
+
+    @media (max-width: 840px) {
+        .card-container {
+            flex-direction: column;
+        }
+    }
+    .vertical-sub {
+        font-size: small;
+        text-align: end;
+        justify-self: flex-end;
+    }
+</style>
