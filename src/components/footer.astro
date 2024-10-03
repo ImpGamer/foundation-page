@@ -1,20 +1,28 @@
+---
+import { getLangFromURL, useTranslations } from "../i18n/utils";
+import { cleanURL } from "../i18n/utils";
+const lang = getLangFromURL(Astro.url)
+const t = useTranslations(lang)
+
+const {currentLocale} =Astro
+---
+
 <div class="footer-container">
     <div class="content-container text">
         <div class="flex-row">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/join_us">The Community</a></li>
-                <li><a href="/news">News About The Project</a></li>
-                <li><a href="/about">Our team</a></li>
+                <li><a href={cleanURL(currentLocale,'')}>{t('nav.home')}</a></li>
+                <li><a href={cleanURL(currentLocale,'join_us')}>{t('nav.join_us')}</a></li>
+                <li><a href={cleanURL(currentLocale,'news')}>{t('nav.news')}</a></li>
+                <li><a href={cleanURL(currentLocale,'about')}>{t('nav.about')}</a></li>
             </ul>
             <ul>
-                <li><a href="mailto:impgamer333@gmail.com">Contact Us</a></li>
-                <li><a target="_blank" href="https://www.kickstarter.com/projects/imp-dev/the-foundation-survive-a-suspense-and-horror-game?ref=discovery">Support The Game</a></li>
+                <li><a href="mailto:impgamer333@gmail.com">{(t('foot.contact'))}</a></li>
+                <li><a target="_blank" href="https://www.kickstarter.com/projects/imp-dev/the-foundation-survive-a-suspense-and-horror-game?ref=discovery">{t('foot.support')}</a></li>
             </ul>
         </div>
         <div class="down-flex">
-            <p><strong>The Foundation Survive </strong>is a game currently in development and everything seen on this page may or may not be the final product. <br><br>
-            All this content does not belong to us, they are property of the <a target="_blank" href="https://scp-wiki.wikidot.com">SCP COMMUNITY.</a>
+            <p><strong>The Foundation Survive </strong>{t('foot.disclaimer')} <a target="_blank" href="https://scp-wiki.wikidot.com">{t('foot-scp.community')}</a>
             </p>
             <ul class="social-container">
                 <li><a href="https://x.com/TheF0undationS" target="_blank" title="twitter/x"><i class="fa-brands fa-square-x-twitter"></i></a></li>

@@ -1,16 +1,38 @@
 ---
+import { getLangFromURL, useTranslations } from "../i18n/utils";
+import LanguagePicker from "../components/languaguePicker.astro"
+import { cleanURL } from "../i18n/utils";
+
 const {indexSelected="0"} = Astro.props;
+export const LANGUAGUE_KEY = "languague"
+
+const lang = getLangFromURL(Astro.url)
+const t = useTranslations(lang)
+//Current Locale es el valor declarado en el config como idioma default
+const {currentLocale} = Astro;
 ---
+<div class="mobile-nav hide-nav">
+    <button type="button" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    <ul class="items">
+        <li><a class={`item${indexSelected == 0 ? ' selected' : ''}`} href={cleanURL(currentLocale,'')}>{t('nav.home')}</a></li>
+            <li><a class={`item${indexSelected == 1 ? ' selected' : ''}`} href={cleanURL(currentLocale,'news')}>{t('nav.news')}</a></li>
+            <li><a class={`item${indexSelected == 2 ? ' selected' : ''}`} href={cleanURL(currentLocale,'about')}>{t('nav.about')}</a></li>
+            <li><a class={`item${indexSelected == 3 ? ' selected' : ''}`} href={cleanURL(currentLocale,'join_us')}>{t('nav.join_us')}</a></li>
+        <LanguagePicker/>
+    </ul>
+</div>
+
 <nav>
     <picture class="image-container">
-        <a href="/"><img src="../../public/images/scp-logo.png" alt="logo"></a>
+        <a href={cleanURL(currentLocale,'')}><img src="../../public/images/scp-logo.png" alt="logo"></a>
     </picture>
     <div class="pages-container">
         <ul class="items">
-            <li><a class={`item${indexSelected == 0 ? ' selected' : ''}`} href="/">Home</a></li>
-            <li><a class={`item${indexSelected == 1 ? ' selected' : ''}`} href="/news">News</a></li>
-            <li><a class={`item${indexSelected == 2 ? ' selected' : ''}`} href="/about">About Us</a></li>
-            <li><a class={`item${indexSelected == 3 ? ' selected' : ''}`} href="/join_us">Join Us</a></li>
+            <li><a class={`item${indexSelected == 0 ? ' selected' : ''}`} href={cleanURL(currentLocale,'')}>{t('nav.home')}</a></li>
+            <li><a class={`item${indexSelected == 1 ? ' selected' : ''}`} href={cleanURL(currentLocale,'news')}>{t('nav.news')}</a></li>
+            <li><a class={`item${indexSelected == 2 ? ' selected' : ''}`} href={cleanURL(currentLocale,'about')}>{t('nav.about')}</a></li>
+            <li><a class={`item${indexSelected == 3 ? ' selected' : ''}`} href={cleanURL(currentLocale,'join_us')}>{t('nav.join_us')}</a></li>
+            <LanguagePicker/>
         </ul>
         
     </div>
@@ -18,6 +40,26 @@ const {indexSelected="0"} = Astro.props;
         <button class="menu-btn"><i class="fa-solid fa-bars"></i></button>
     </div>
 </nav>
+
+<script>
+    const btnMenu = document.querySelector('.menu-btn')
+    const btnClose = document.querySelector('.close-btn')
+    const mobileNav = document.querySelector('.mobile-nav')
+    function toggleHideClass() {
+        mobileNav.classList.toggle('hide-nav') 
+        if (!mobileNav.classList.contains('hide-nav')) {
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed'; // Fija el body para evitar scroll
+            document.body.style.width = '100%';
+        } else {
+            document.body.style.overflow = 'auto';
+            document.body.style.position = ''; // Restablece el posicionamiento original
+        }
+    }
+    btnClose.addEventListener('click',() => toggleHideClass())
+    btnMenu.addEventListener('click',() => toggleHideClass())
+
+</script>
 
 <style>
     nav {
@@ -92,7 +134,36 @@ const {indexSelected="0"} = Astro.props;
         .image-container {
             min-width: 45vw;
         }
-        .pages-container {display: none;}
+        .pages-container {
+            display: none;
+            margin: 0;
+        }
+        .items {
+            flex-direction: column;
+            padding: 35%;
+        }
+        .item {
+            font-size: 2rem;
+            color: black;
+        }
     }
-
+    .mobile-nav {
+        background-color: rgba(255,255,255,0.5);
+        text-align: center;
+        height: 100vh;
+        width: 100vw;
+        justify-content: space-between;
+        position: relative;
+    }
+    .hide-nav {
+        display: none;
+    }
+    .close-btn {
+        margin-left: auto;
+        position: absolute;
+        top: 1rem;
+        right: 5vw;
+        background-color: white;
+        border: 2px outset rgb(1,1,1);
+    }
 </style>

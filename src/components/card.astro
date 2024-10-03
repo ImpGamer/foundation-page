@@ -1,9 +1,27 @@
 ---
-const {titleCard,srcImage} = Astro.props
+const {titleCard,srcSource,multimediaType,posterImage=''} = Astro.props
+
+export const GRAPHIC_TYPE = Object.freeze({
+  IMAGE: 'image',
+  VIDEO: 'video'
+});
+
+function getTypeSource() {
+    const extension = srcSource.split('.').pop()
+    console.log(extension)
+    return extension;
+}
 ---
 
 <div class="card-container card">
-    <img src={srcImage} alt=`${titleCard}-image` class="card-img-top resp-image">
+    {multimediaType === GRAPHIC_TYPE.IMAGE ? (
+        <img src={srcSource} alt={titleCard} class="resp-image img-fluid"/>
+    ) : (
+    <video controls poster={posterImage}>
+        <source src={srcSource} type={`video/${getTypeSource()}`}>
+        Your navigator doesn't support this video.
+    </video>
+    )}
     <div class="content text">
         <h4 class="title">{titleCard}</h4>
         <slot/>
@@ -12,6 +30,7 @@ const {titleCard,srcImage} = Astro.props
 
 <style>
     .card-container {
+        overflow: hidden;
         width: 35vw;
         border-radius: 20px;
         background-color: rgba(1,1,1,0.5);
@@ -21,10 +40,11 @@ const {titleCard,srcImage} = Astro.props
         margin-top: 15px;
         text-align: center;
         color: white;
+        padding: 5%;
     }
     .resp-image {
-        border-radius: inherit;
-        max-height: 80%;
+        max-height: 70%;
+        max-width: 100%;
     }
 
     .title {

@@ -17,7 +17,7 @@ export const DIRECTION_CARD = Object.freeze({
         </div>
     </div>
         {isImage ? (
-                <img src={imageSRC} alt={altImage} class="img-fluid" />
+                <img src={imageSRC} alt={altImage} class={`img-fluid ${direction===DIRECTION_CARD.REVERSE?'':'img'}`}/>
         ) : (
             <div class="graphic-container">
                 <ScpLogo />
@@ -32,6 +32,10 @@ export const DIRECTION_CARD = Object.freeze({
 
 
 <style>
+    .img {
+        margin-left: 15%;
+        max-height: 55vh;
+    }
     .card-container {
         display: flex;
         width: 100%;
@@ -41,6 +45,7 @@ export const DIRECTION_CARD = Object.freeze({
     }
     .reverse {
         flex-direction: row-reverse;
+        text-align: end;
     }
     .graphic-container {
         justify-content: center;
@@ -92,6 +97,11 @@ export const DIRECTION_CARD = Object.freeze({
             margin: 0;
             width: 90vw;
             height: 80vh;
+        }
+        .img {
+            width: 100%;
+            margin: 0;
+            padding: 1vw;
         }
     }
 </style>

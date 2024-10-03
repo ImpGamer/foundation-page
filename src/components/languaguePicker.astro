@@ -1,0 +1,50 @@
+---
+import { languagues } from "../i18n/ui";
+---
+
+<li class="languague-container">
+    <span><i class="fa-solid fa-globe"></i></span>
+    <select>
+        {
+            Object.entries(languagues).map(([lang,label]) => (
+                <option value={lang}>{label}</option>
+            ))
+        }
+    </select>
+</li>
+
+<script>
+    const selectedElements = document.querySelectorAll('select')
+    const LANGUAGUE_KEY = "languague"
+    localStorage.setItem(LANGUAGUE_KEY,localStorage.getItem(LANGUAGUE_KEY)??'en')
+    let dinamicPath = `/${localStorage.getItem(LANGUAGUE_KEY)}`
+
+    selectedElements.forEach(select => {
+        select.value = localStorage.getItem(LANGUAGUE_KEY)
+
+        select.addEventListener('change',() => {
+            let lastPath = window.location.href.split("/").pop()
+            localStorage.setItem(LANGUAGUE_KEY,select.value)
+            dinamicPath = localStorage.getItem(LANGUAGUE_KEY)==='en'?'':`/${localStorage.getItem(LANGUAGUE_KEY)}`
+            window.location.href = `${dinamicPath}/${lastPath}`
+        })
+    })
+</script>
+
+<style>
+    select {
+        font-size: 80%;
+        background-color: rgba(255,255,255,0.7);
+        border-radius: 20px;
+        padding: 0px 10px;
+    }
+
+    option {
+        background-color: rgba(255,255,255,0.7);
+        color: #333;
+    }
+    .languague-container {
+        color: white;
+        font-size: 1.5em;
+    }
+</style>
