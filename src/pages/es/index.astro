@@ -1,0 +1,23 @@
+---
+import Principal from '../../layouts/principal.astro'
+import TitleCard, { DIRECTION_CARD } from '../../components/Title_card.astro'
+---
+
+<Principal title="Home" indexSelected="0">
+	<TitleCard
+	titleCard="THE FOUNDATION SURVIVE",
+	descriptionCard="UN JUEGO DE HORROR, ACCION Y SUSPENSO",
+	direction={DIRECTION_CARD.NORMAL},
+	isImage= {false}>
+
+		<h5 class="creepy-text">SINOPSIS</h5>
+		<p>
+			"The Foundation Survive" es un juego de accion y horror inspirado en las populares novelas de internet <strong>La Fundación SCP.</strong>
+			El juego se sumergira en diferentes historias durante un incidente que tomara lugar dentro de la fundación. Donde en cada historia
+			experimentaras un evento terrorifico e historias ocultas que no deberan salir de las instalaciones.
+		</p>
+
+		<a style="margin-top: 1rem;" class="btn btn-dark btn-lg" href="/about">Conoce más</a>
+	</TitleCard>
+
+</Principal>

@@ -1,0 +1,129 @@
+---
+import Principal from "../../layouts/principal.astro";
+import LargeCard from "../../components/large_card.astro";
+import Card from "../../components/card.astro";
+import { DIRECTION_CARD } from "../../components/Title_card.astro";
+import { GRAPHIC_TYPE } from "../../components/card.astro";
+
+function formatString(text) {
+    return text.replace(/ /g,"%20")
+}
+---
+<Principal title="Join Us" indexSelected="3">
+    <LargeCard titleCard="Se parte de nuestra comunidad"
+        srcImage="../../public/images/logo.gif"
+        direction={DIRECTION_CARD.NORMAL}>
+        <div style="margin-top: 8%;" class="text">
+            <p><span class="creepy-text">Discord</span> 
+                es nuestra manera de comunicarnos con la comunidad.
+                <br>Habra gente con lo cual hablar y compartir muchas cosas, ademas de eventos y noticias (mas a menudo). Y más!
+                <br>Es un lugar donde la comunidad puede compartir sus opiniones y nosotros escucharlos.
+            </p>
+
+        <!-- so if you want to belong here. -->
+        <a href="https://discord.gg/uW7CxedBPT" target="_blank" class="btn btn-primary">
+            <i class="fa-brands fa-discord"></i>
+            UNETE!
+        </a>
+        </div>
+    </LargeCard>
+    <div class="team-container">
+        <h3 class="title">¡UNETE A NUESTRO EQUIPO!</h3>
+        <p class="creepy-text">¿Crees que tienes las habilidades necesarias para desarrollar un videojuego?</p>
+        <p class="text">Puedes probarlo en alguna de nuestras areas.</p>
+        <div class="grid-parent">
+            <Card
+            titleCard="Desarrollador (Programador)"
+            srcSource="../../public/images/programmer.jpeg"
+            multimediaType={GRAPHIC_TYPE.IMAGE}>
+            <div class="content-card">
+                <p>Serás una pieza fundamental en el desarrollo y mantenimiento del software, un desarrollador será el encargado de darle vida al juego.
+                    Tendrás que tener conocimientos de programación básico-intermedio con C#, Unity y otras herramientas.</p>
+                    <button class="btn btn-danger" type="button">
+                        <a href=`mailto:impgamer333@gmail.com?subject=${encodeURIComponent("Developer")}&body=${formatString("Hi! I would like to know more about the developer position (you can modify this message)")}`><span><i class="fa-solid fa-envelope"></i></span> Enviar Correo</a>
+                    </button>
+            </div>
+            </Card>
+            <Card
+            titleCard="Diseñador UI/UX"
+            srcSource="../../public/images/UI-UX.jpeg"
+            multimediaType={GRAPHIC_TYPE.IMAGE}>
+            <div class="content-card">
+                <p>Un Diseñador UI/UX será una pieza fundamental para una experiencia cómoda e intuitiva para el usuario.
+                    Brindando al jugador una experiencia de juego fácil e inmersiva.
+                </p>
+                <button class="btn btn-danger" type="button">
+                    <a href=`mailto:impgamer333@gmail.com?subject=${encodeURIComponent("UI/UX Designer")}&body=${formatString("Hi! I would like to know more about the UI/UX Designer position (you can modify this message)")}`><span><i class="fa-solid fa-envelope"></i></span> Enviar Correo</a>
+                </button>
+            </div>
+            </Card>
+            <Card
+            titleCard="Artista 3D - Animador"
+            srcSource="../../public/images/artist3D.jpeg"
+            multimediaType={GRAPHIC_TYPE.IMAGE}
+            >
+            <div class="content-card">
+                <p>Gran pilar para el avance del proyecto, serás el encargado de crear el aspecto artístico más importante, los personajes y sus movimientos, así como las cinemáticas y animaciones. Conocimiento de algún software de modelado y animación como Blender, Maya, AutoDesk u otro.</p>
+                <button type="button" class="btn btn-danger">
+                    <a href=`mailto:impgamer333@gmail.com?subject=${encodeURIComponent("3D Artist - Animator")}&body=${formatString("Hi! I would like to know more about the 3D Artist position (you can modify this message)")}`><span><i class="fa-solid fa-envelope"></i></span> Enviar Correo</a>
+                </button>
+            </div>
+
+            </Card>
+            <Card
+            titleCard="Marketing Digital"
+            srcSource="../../public/images/marketing.jpeg"
+            multimediaType={GRAPHIC_TYPE.IMAGE}
+            >
+            <div class="content-card">
+                <p>Nuestro portal a la comunidad, nos ayudarás a compartir y difundir el proyecto para que llegue a más personas y amplíe la comunidad, además de llamar la atención de otros equipos o empresas.</p>
+                <button class="btn btn-danger" type="button">
+                    <a href=`mailto:impgamer333@gmail.com?subject=${encodeURIComponent("Digital Marketing")}&body=${formatString("Hi! I would like to know more about the Digital Marketing position (you can modify this message)")}`><span><i class="fa-solid fa-envelope"></i></span> Enviar Correo</a>
+                </button>
+            </div>
+            </Card>
+        </div>
+        <p class="text" style="margin-top: 40px;">Antes de enviarnos un mensaje recuerda que somos un equipo independiente y estamos empezando, por lo que no ofrecemos puestos altos ni grandes salarios. Obviamente intentando recompensarte lo máximo posible por tu trabajo y esfuerzo. <b>Así que considere esto antes de contactarnos.</b></p>
+    </div>
+</Principal>
+
+<style>
+    .grid-parent {
+        margin-top: 120px;
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 10vh;
+    }
+    .team-container {
+        margin-top: 10vh;
+        text-align: center;
+        justify-items: center;
+    }
+
+    .title {
+        font-family: "Rubik Spray Paint", system-ui;
+        text-align: center;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 4.5em;
+        color: #801423;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    @media (width <= 1060px) {
+        .grid-parent {
+            margin-top: 70px;
+            grid-template-columns: repeat(1,1fr);
+            grid-template-rows: repeat(4, 1fr);
+        }
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>

@@ -4,10 +4,12 @@ import Footer from '../components/footer.astro'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 const {title} = Astro.props
 const {indexSelected="0"} = Astro.props;
+
+const {currentLocale} = Astro;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={currentLocale}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

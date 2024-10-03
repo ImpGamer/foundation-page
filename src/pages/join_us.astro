@@ -3,6 +3,7 @@ import Principal from "../layouts/principal.astro";
 import LargeCard from "../components/large_card.astro";
 import Card from "../components/card.astro";
 import { DIRECTION_CARD } from "../components/Title_card.astro";
+import { GRAPHIC_TYPE } from "../components/card.astro";
 
 function formatString(text) {
     return text.replace(/ /g,"%20")
@@ -32,52 +33,60 @@ function formatString(text) {
         <div class="grid-parent">
             <Card
             titleCard="Developer (Programming)"
-            srcImage="../../public/images/default.jpg">
+            srcSource="../../public/images/programmer.jpeg"
+            multimediaType={GRAPHIC_TYPE.IMAGE}>
             <div class="content-card">
                 <p>You'll be a fundamental piece in the development and maintenance of the software, a developer will be in charge of giving life to the game.
                     You will have to have basic-intermediate programming knowledge with C#, Unity and other tools.</p>
-                    <a class="btn btn-danger" href=`mailto:impgamer333@gmail.com?subject=${encodeURIComponent("Developer")}&body=${formatString("Hi! I would like to know more about the developer position (you can modify this message)")}`><span><i class="fa-solid fa-envelope"></i></span> Send Email</a>
+                    <button class="btn btn-danger" type="button">
+                        <a href=`mailto:impgamer333@gmail.com?subject=${encodeURIComponent("Developer")}&body=${formatString("Hi! I would like to know more about the developer position (you can modify this message)")}`><span><i class="fa-solid fa-envelope"></i></span> Send Email</a>
+                    </button>
             </div>
             </Card>
             <Card
             titleCard="UI/UX Designer"
-            srcImage="../../public/images/default.jpg">
+            srcSource="../../public/images/UI-UX.jpeg"
+            multimediaType={GRAPHIC_TYPE.IMAGE}>
             <div class="content-card">
                 <p>An UI/UX Designer will be a fundamental piece for a comfortable and intuitive experience for the user.
                     Giving the player an easy and immersive gaming experience.
                 </p>
-                <a class="btn btn-danger" href=`mailto:impgamer333@gmail.com?subject=${encodeURIComponent("UI/UX Designer")}&body=${formatString("Hi! I would like to know more about the UI/UX Designer position (you can modify this message)")}`><span><i class="fa-solid fa-envelope"></i></span> Send Email</a>
+                <button class="btn btn-danger" type="button">
+                    <a href=`mailto:impgamer333@gmail.com?subject=${encodeURIComponent("UI/UX Designer")}&body=${formatString("Hi! I would like to know more about the UI/UX Designer position (you can modify this message)")}`><span><i class="fa-solid fa-envelope"></i></span> Send Email</a>
+                </button>
             </div>
             </Card>
             <Card
             titleCard="3D Artist - Animator"
-            srcImage="../../public/images/default.jpg"
+            srcSource="../../public/images/artist3D.jpeg"
+            multimediaType={GRAPHIC_TYPE.IMAGE}
             >
             <div class="content-card">
                 <p>A great pillar for the advancement of the project, you will be in charge of creating the most important artistic aspect, the characters and their movements, as well as cinematics and animations. Knowledge of some modeling and animation software such as Blender, Maya, AutoDesk or another.</p>
-                <a class="btn btn-danger" href=`mailto:impgamer333@gmail.com?subject=${encodeURIComponent("3D Artist - Animator")}&body=${formatString("Hi! I would like to know more about the 3D Artist position (you can modify this message)")}`><span><i class="fa-solid fa-envelope"></i></span> Send Email</a>
+                <button type="button" class="btn btn-danger">
+                    <a href=`mailto:impgamer333@gmail.com?subject=${encodeURIComponent("3D Artist - Animator")}&body=${formatString("Hi! I would like to know more about the 3D Artist position (you can modify this message)")}`><span><i class="fa-solid fa-envelope"></i></span> Send Email</a>
+                </button>
             </div>
 
             </Card>
             <Card
             titleCard="Digital Marketing"
-            srcImage="../../public/images/default.jpg"
+            srcSource="../../public/images/marketing.jpeg"
+            multimediaType={GRAPHIC_TYPE.IMAGE}
             >
             <div class="content-card">
                 <p>Our portal to the community, you will help us share and spread the project so that it reaches more people and expands the community, as well as attracting the attention of other teams or companies.</p>
-                <a class="btn btn-danger" href=`mailto:impgamer333@gmail.com?subject=${encodeURIComponent("Digital Marketing")}&body=${formatString("Hi! I would like to know more about the Digital Marketing position (you can modify this message)")}`><span><i class="fa-solid fa-envelope"></i></span> Send Email</a>
+                <button class="btn btn-danger" type="button">
+                    <a href=`mailto:impgamer333@gmail.com?subject=${encodeURIComponent("Digital Marketing")}&body=${formatString("Hi! I would like to know more about the Digital Marketing position (you can modify this message)")}`><span><i class="fa-solid fa-envelope"></i></span> Send Email</a>
+                </button>
             </div>
-
             </Card>
         </div>
-        <p class="text" style="margin-top: 40px;">Before sending us a message, remember that we are an independent team and we are just starting out, so we do not offer high positions or large salaries. Obviously trying to reward you as much as possible for your work and efforts. So consider this before contact us.</p>
+        <p class="text" style="margin-top: 40px;">Before sending us a message, remember that we are an independent team and we are just starting out, so we do not offer high positions or large salaries. Obviously trying to reward you as much as possible for your work and efforts. <b>So consider this before contact us.</b></p>
     </div>
 </Principal>
 
 <style>
-    .content-card {
-        padding: 5%;
-    }
     .grid-parent {
         margin-top: 120px;
         display: grid;
@@ -111,5 +120,9 @@ function formatString(text) {
             grid-template-columns: repeat(1,1fr);
             grid-template-rows: repeat(4, 1fr);
         }
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
     }
 </style>

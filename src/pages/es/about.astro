@@ -1,47 +1,50 @@
 ---
-import Principal from "../layouts/principal.astro";
-import TitleCard from "../components/Title_card.astro";
-import { DIRECTION_CARD } from "../components/Title_card.astro";
-import Card from "../components/card.astro";
-import { GRAPHIC_TYPE } from "../components/card.astro";
+import Principal from "../../layouts/principal.astro";
+import TitleCard from "../../components/Title_card.astro";
+import { DIRECTION_CARD } from "../../components/Title_card.astro";
+import Card from "../../components/card.astro";
+import { GRAPHIC_TYPE } from "../../components/card.astro";
 ---
 <Principal title="About Project" indexSelected="2">
     <TitleCard
     titleCard=""
-    descriptionCard="What's the foundation survive?"
+    descriptionCard="Que es la foundation survive?"
     direction={DIRECTION_CARD.NORMAL}
     isImage={true}
     imageSRC="../../public/images/default.jpg"
     altImage="Presentation"
     >
-    <p>It is a video game based on "The SCP Foundation" web novels. The game is expected to tell you several stories about characters experiencing a containment breach, where each one will tell you their experiences living through this horrible event. Discovering things about the foundation and other stories. Mixing horror, suspense and action on the journey.</p>
+    <p>
+        Es un videojuego basado en las novelas web "La Fundacion SCP". El juego tratara de contarte varias historias sobre diferentes personajes experimentando una brecha de conteción, donde cada uno de los protagonistas te mostrara su experiencia viviendo este horrible suceso. Descubriendo en el camino cosas y otras historias sobre la fundación, algunos cuestionables. Mezclando el horror, suspenso y accion durante el viaje.</p>
     </TitleCard>
 
     <div style="margin-top: 15vh;">
         <TitleCard
     titleCard=""
-    descriptionCard=`THE "STUDIO"`
+    descriptionCard=`El "STUDIO"`
     direction={DIRECTION_CARD.REVERSE}
     isImage={true}
     imageSRC="../../public/images/team-logo.avif"
     altImage="team logo"
     >
-    <p>We are not really a studio but we would like to call it that, in case this progresses. We are just a couple of guys who like stories and telling them through video games. The team's goal is to start developing games of all kinds for the community, action, adventure, puzzles, multiplayer, horror and others. This in the future (near we hope).</p>
+    <p>
+        Realmente no somo un estudio, pero nos gustaria llamarlo asi, en caso de que esto progrese. Solo somos un par de chicos que les gusta contar historias atravez de los videojuegos. La meta del equipo es agrandarlo y comenzar a crear videojuegos de todo tipo para la comunidad, acción, aventura, puzzles, multijadores, horror y otros. Esto en un futuro (esperamos que cercano).</p>
     </TitleCard>
     </div>
 
     <div class="team-container">
-        <h4 class="title">OUR TEAM</h4>
-        <p class="creepy-text">The people who work on the project.</p>
+        <h4 class="title">NUESTRO EQUIPO</h4>
+        <p class="creepy-text">La gente que trabaja para el proyecto</p>
         <div class="grid-parent">
             <Card
             titleCard="David"
             srcSource="../../public/images/profile.svg"
             multimediaType={GRAPHIC_TYPE.IMAGE}
             >
-            <h5 class="creepy-text">Project manager - programmer - tester</h5>
-            <p>David or "Imp" is the developer and project manager of the project. <br> He's in charge that everything is in order.
-                <br>He is an incredible developer and passionate about technology into this world for 2 years, so far this has been his most ambitious project.
+            <h5 class="creepy-text">Director de equipo - programador - tester</h5>
+            <p>David o "Imp" es el desarrollador y lider de equipo en el proyecto.<br> 
+                El esta a cargo de que todo este en orden. <br>
+                Es un increible desarrollador, apasionado por la tecnologia llevando 2 años en el mercado, este ha sido su proyecto mas ambicioso hasta el momento.
             </p>
             <ul class="social-container">
                 <li><a href="https://x.com/Imp_Gamer03" target="_blank" title="twitter/x"><i class="fa-brands fa-square-x-twitter"></i></a></li>
@@ -54,9 +57,8 @@ import { GRAPHIC_TYPE } from "../components/card.astro";
             srcSource="../../public/images/profile.svg"
             multimediaType={GRAPHIC_TYPE.IMAGE}
             >
-            <h5 class="creepy-text">2D Artist - Ilustrator</h5>
-            <p>Diego is on charge in the 2D art ambient, he creates de sprites for the project. <br>
-                And why not, contribute by giving opinions or suggestions about the direction of the project.
+            <h5 class="creepy-text">Artista 2D - Ilustrador</h5>
+            <p>Diego esta a cargo del ambiente 2D, el crea los sprites para el proyecto.<br> Y porque no, contribuye dando opiniones o sugerencias sobre la direccion del proyecto. 
             </p>
 
             </Card>
