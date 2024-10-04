@@ -1,6 +1,6 @@
 ---
 import ScpLogo from "./scp_logo.astro";
-const { titleCard, descriptionCard, direction, isImage, imageSRC = '', altImage = '' } = Astro.props;
+const { titleCard, descriptionCard, direction, isImage, imageSRC = '', altImage = '',shadowImg=false} = Astro.props;
 
 export const DIRECTION_CARD = Object.freeze({
   NORMAL: 'normal',
@@ -8,7 +8,7 @@ export const DIRECTION_CARD = Object.freeze({
 });
 ---
 
-<div class={`card-container ${direction===DIRECTION_CARD.NORMAL?'normal':'reverse'}`}>
+<div class={`card-container ${direction===DIRECTION_CARD.NORMAL?'normal':'reverse'} `}>
     <div>
         <h1 class="title">{titleCard.toUpperCase()}</h1>
         <h2 class="subtitle">{descriptionCard.toUpperCase()}</h2>
@@ -17,7 +17,7 @@ export const DIRECTION_CARD = Object.freeze({
         </div>
     </div>
         {isImage ? (
-                <img src={imageSRC} alt={altImage} class={`img-fluid ${direction===DIRECTION_CARD.REVERSE?'':'img'}`}/>
+                <img src={imageSRC} alt={altImage} class={`img-fluid ${direction===DIRECTION_CARD.REVERSE?'':'img'} ${shadowImg?'shadow':''}`}/>
         ) : (
             <div class="graphic-container">
                 <ScpLogo />
@@ -34,7 +34,10 @@ export const DIRECTION_CARD = Object.freeze({
 <style>
     .img {
         margin-left: 15%;
-        max-height: 55vh;
+        max-height: 40vh;
+        max-width: 60vw;
+        margin: 0 auto;
+        display: block;
     }
     .card-container {
         display: flex;
@@ -63,6 +66,9 @@ export const DIRECTION_CARD = Object.freeze({
         font-weight: 400;
         font-style: normal;
         margin-top: 12%;
+    }
+    .shadow {
+        mask-image: linear-gradient(black 60% ,transparent);
     }
 
     .title {
@@ -100,7 +106,7 @@ export const DIRECTION_CARD = Object.freeze({
         }
         .img {
             width: 100%;
-            margin: 0;
+            margin: 20%;
             padding: 1vw;
         }
     }
