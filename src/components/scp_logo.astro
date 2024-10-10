@@ -1,9 +1,10 @@
 <div id="scp_canvas"></div>
 
 <script type="module">
-    import * as THREE from '/node_modules/three';
-    import { GLTFLoader } from '/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-    import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls.js';
+    import * as THREE from './node_modules/three/build/three.module.js';
+    import { GLTFLoader } from './node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+    import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
+
     let scpModel = null;
     let renderer = null
     let controls = null
@@ -67,7 +68,7 @@
 
     function setModel() {
         const loader = new GLTFLoader();
-        loader.load('../../public/models/scp_logo.glb', (gltf) => {
+        loader.load('/models/scp_logo.glb', (gltf) => {
             gltf.scene.traverse((child) => {
                 if(child.isMesh) {
                     child.castShadow = true;
@@ -96,7 +97,6 @@
         controls.enablePan = false;
         controls.enableZoom = false;
     }
-
 </script>
 
 <style>

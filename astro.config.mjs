@@ -8,5 +8,12 @@ export default defineConfig({
         routing: {
             prefixDefaultLocale: false
         }
-    }
+    },
+    vite: {
+        build: {
+          rollupOptions: {
+            external: ['three'], // Indica a Vite que three.js es un módulo externo
+          },
+        },
+      },
 });
