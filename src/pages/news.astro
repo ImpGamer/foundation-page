@@ -1,11 +1,13 @@
 ---
-import Principal from "../layouts/principal.astro";
+import Principal from "../layouts/principal.astro"
 ---
 
 <Principal title="News" indexSelected="1">
     <div class="no-content-container text">
-        <h4 class="title">THERE'S NO NEWS AT THIS MOMENT :(</h4>
-        <p>Please come back soon and you may see new news!</p>
+        <h2 class="title">Story 1 - Official Teaser Trailer #1</h2>
+        <video src="/videos/Trailer1.mp4" controls>
+            Your browser doesn't support this video. <code>video</code>
+        </video>
     </div>
     
 </Principal>
@@ -17,6 +19,12 @@ import Principal from "../layouts/principal.astro";
         box-shadow: 2px 2px 3px black;
         text-align: center;
         border-radius: 15px;
+    }
+    video {
+        width: 100%;
+        height: auto; /* Ajusta la altura para mantener la relación de aspecto */
+        max-width: 100%; /* Asegura que el video no se extienda más allá del contenedor */
+        border-radius: 8px; /* Opcional: añade bordes redondeados al video */
     }
     .title {
         font-family: "Rubik Spray Paint", system-ui;
